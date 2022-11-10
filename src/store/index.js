@@ -8,6 +8,7 @@ export default createStore({
         loginError: null,
         accessToken: null,
         cameraList: [],
+        cameraData: {},
     },
     mutations: {
         loginStop: (state, errorMessage) => {
@@ -18,6 +19,9 @@ export default createStore({
         },
         updateCameraList: (state, cameraList) => {
             state.cameraList = cameraList;
+        },
+        updateCameraData: (state, cameraData) => {
+            state.cameraData = cameraData;
         }
     },
     actions: {
@@ -50,6 +54,22 @@ export default createStore({
                 .get("http://localhost:8080/rest/v2.4/cameras/")
                 .then(response => {
                     commit('updateCameraList', response.data)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        },
+
+        getCameraData({state, commit}, cameraId) {
+            console.log(cameraId)
+            axios.defaults.headers = {
+                Authorization: "Bearer" + state.accessToken
+            }
+
+            axios
+                .get("http://localhost:8080/rest/v2.4/cameras/" + cameraId)
+                .then(response => {
+                    commit('updateCameraData', response.data)
                 })
                 .catch(error => {
                     console.log(error)

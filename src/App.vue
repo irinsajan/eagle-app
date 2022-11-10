@@ -32,4 +32,20 @@
     height: 100%;
   }
 
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0091DA;
+  }
+
+  .inner {
+    margin: auto;
+    background-color: #EFEFEF;
+    padding: 40px 55px 45px 55px;
+    border-radius: 15px;
+  }
+
 </style>

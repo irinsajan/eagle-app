@@ -1,6 +1,6 @@
 <template>
-    <div class="login-wrapper">
-        <div class="login-inner">
+    <div class="wrapper">
+        <div class="inner">
             <img src="../assets/logo.png" />
 
             <form @submit.prevent="handleSubmit">        
@@ -60,31 +60,18 @@
         height: auto;
     } 
 
-    .login-wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    background-color: #0091DA;
-  }
-
-  .login-inner {
+  .inner {
     width: 450px;
-    margin: auto;
-    background-color: #EFEFEF;
-    padding: 40px 55px 45px 55px;
-    border-radius: 15px;
   }
 
   @media screen and (max-width: 580px) {
-    .login-inner {
+    .inner {
       width: 380px;
     }
   }
 
   @media screen and (max-width: 420px) {
-    .login-inner {
+    .inner {
       width: 340px;
     }
   }
