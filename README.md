@@ -1,24 +1,17 @@
-# eagle-auth-app
+# Eagle Eye User App
 
-## Project setup
+## A Vue JS application to details from API when a user logs in
+
+## To run the project
 ```
+git clone https://github.com/irinsajan/eagle-app.git
+cd eagle-app
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
+
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+### Thank you!!
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
