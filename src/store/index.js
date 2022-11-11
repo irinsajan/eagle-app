@@ -5,15 +5,15 @@ import router from '../router';
 
 export default createStore({
     state: {
-        loginError: null,
+        errorMessage: null,
         refreshToken: null,
         cameraList: [],
         cameraData: {},
     },
     mutations: {
-        //helps to display login error on login page, if any
-        loginStop: (state, errorMessage) => {
-            state.loginError = errorMessage;
+        //helps to display error when an API fails
+        errorDisplay: (state, errorMessage) => {
+            state.errorMessage = errorMessage;
         },
         updateRefreshToken: (state, refreshToken) => {
             state.refreshToken = refreshToken;
@@ -37,13 +37,13 @@ export default createStore({
                 .post("http://localhost:8080/oauth/token?grant_type=password&scope=write&username=" + loginData.email + "&password=" + loginData.password)
                 .then(response => {
                     localStorage.setItem('refreshToken', response.data.refresh_token);
-                    commit('loginStop', null);
+                    commit('errorDisplay', null);
                     commit('updateRefreshToken', response.data.refresh_token);
                     router.push({name: 'home'})
                 })
                 .catch(error => {
                     //displays error if login fails
-                    commit('loginStop', error.response.data.error);
+                    commit('errorDisplay', error.response.data.error);
                     commit('updateRefreshToken', null);
                 })
         },
@@ -79,10 +79,11 @@ export default createStore({
                         .get("http://localhost:8080/rest/v2.4/cameras/")
                         .then(response1 => {
                             commit('updateCameraList', response1.data)
+                            commit('errorDisplay', null)
                         })
-                        .catch(error1 => console.log(error1))
+                        .catch(error1 => commit('errorDisplay', error1.response.data.error))
                 })
-                .catch(error => console.log(error))
+                .catch(error => commit('errorDisplay', error.response.data.error))
                    
             
         },
@@ -105,9 +106,9 @@ export default createStore({
                         .then(response1 => {
                             commit('updateCameraData', response1.data)
                         })
-                        .catch(error1 => console.log(error1))
+                        .catch(error1 => commit('errorDisplay', error1.response.data.error))
                 })
-                .catch(error => console.log(error))
+                .catch(error => commit('errorDisplay', error.response.data.error))
 
             
         },

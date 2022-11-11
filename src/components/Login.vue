@@ -19,8 +19,8 @@
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary">Login</button>
                 </div>
-                <!-- Displayed only when a login error occurs -->
-                <p v-if="loginError">Login error: <span>{{ loginError }}</span></p>
+                <!-- Displayed only when a API error occurs -->
+                <p v-if="errorMessage">Login error: <span>{{ errorMessage }}</span></p>
             </form>
         </div>
     </div>
@@ -38,7 +38,7 @@
         },
         computed: {
             ...mapState([
-                'loginError',
+                'errorMessage',
             ])
         },
         methods: {
@@ -84,9 +84,7 @@
     margin-top: 15px;
   }
 
-  span {
-    color: red;
-  }
+  
 
  
 </style>

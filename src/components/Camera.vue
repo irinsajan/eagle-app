@@ -3,6 +3,9 @@
     <Navigation />   
     <div class="wrapper">
         <div class="inner">
+            <!-- Displayed only when a API error occurs -->
+            <p v-if="errorMessage">Error: <span>{{ errorMessage }}</span></p>
+
             <img src="../assets/cam.png" />
             <p><b>Camera ID:</b> {{cameraData.cameraId}}</p>
             <p><b>Name:</b> {{cameraData.name}}</p>
@@ -33,6 +36,7 @@
         computed: {
             ...mapState([
                 'cameraData',
+                'errorMessage',
             ])
         },
         methods: {

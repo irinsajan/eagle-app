@@ -4,6 +4,8 @@
     <div class="wrapper">
         <div class="inner">
             <div class="row">
+                <!-- Displayed only when a API error occurs -->
+                <p v-if="errorMessage">Error: <span>{{ errorMessage }}</span></p>
                 <!-- showing list of cameras -->
                 <div class="col" v-for="cam in cameraList" :key="cam">
                     <!-- linking each cam to its own page -->
@@ -33,6 +35,7 @@
         computed: {
             ...mapState([
                 'cameraList',
+                'errorMessage',
             ])
         },
         methods: {

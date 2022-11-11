@@ -48,4 +48,8 @@
     border-radius: 15px;
   }
 
+  span {
+    color: red;
+  }
+
 </style>
