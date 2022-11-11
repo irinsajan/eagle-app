@@ -74,7 +74,12 @@ export default createStore({
                 .catch(error => {
                     console.log(error)
                 })
+        },
+
+        logOut() {
+            router.push({name: 'login'})
         }
+
     },
     getters: {
 

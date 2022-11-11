@@ -1,4 +1,5 @@
 <template>
+    <Navigation />   
     <div class="wrapper">
         <div class="inner">
             <div class="row">
@@ -15,9 +16,14 @@
 
     import { mapState, mapActions } from 'vuex'
     import router from '../router';
+    import Navigation from './Navigation.vue'
+
 
     export default {
         name: 'Home',
+        components: {
+            Navigation,
+        },
         created() {
             this.getCameraList()
         },

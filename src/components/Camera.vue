@@ -1,4 +1,5 @@
 <template>
+    <Navigation />   
     <div class="wrapper">
         <div class="inner">
             <img src="../assets/cam.png" />
@@ -15,9 +16,14 @@
 <script>
 
     import { mapState, mapActions } from 'vuex'
+    import Navigation from './Navigation.vue'
+
 
     export default {
         name: 'Camera', 
+        components: {
+            Navigation,
+        },
         props: ['id'],
         created() {
             this.getCameraData(this.id)
