@@ -1,9 +1,12 @@
+<!-- User home component showing list of cameras -->
 <template>
     <Navigation />   
     <div class="wrapper">
         <div class="inner">
             <div class="row">
+                <!-- showing list of cameras -->
                 <div class="col" v-for="cam in cameraList" :key="cam">
+                    <!-- linking each cam to its own page -->
                     <a @click="goToCameraDetails(cam.cameraId)"><img src="../assets/cam.png" /></a>
                     <h2> {{cam.cameraId}} </h2>
                 </div>
@@ -37,6 +40,7 @@
                 'getCameraList'
             ]),
             goToCameraDetails(id) {
+                //routing to specific camera page by passing cameraId as parameter
                 router.push({name: 'camera', params: {id: id}})
             }
         }

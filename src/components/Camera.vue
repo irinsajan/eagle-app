@@ -1,3 +1,4 @@
+<!-- Camera component showing specific camera details -->
 <template>
     <Navigation />   
     <div class="wrapper">
@@ -26,6 +27,7 @@
         },
         props: ['id'],
         created() {
+            //fetching specific camera data with help of cameraId passed while routing from user home
             this.getCameraData(this.id)
         },
         computed: {

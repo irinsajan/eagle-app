@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand"><img src="../assets/logo-eagle.png" /></a>
+            <router-link to="/home" class="navbar-brand"><img src="../assets/logo-eagle.png" /></router-link>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">

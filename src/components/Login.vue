@@ -1,8 +1,9 @@
+<!-- Login component for user login -->
 <template>
     <div class="wrapper">
         <div class="inner">
             <img src="../assets/logo.png" />
-
+            <!-- User login form -->
             <form @submit.prevent="handleSubmit">        
 
                 <div class="mb-3">
@@ -18,6 +19,7 @@
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary">Login</button>
                 </div>
+                <!-- Displayed only when a login error occurs -->
                 <p v-if="loginError">Login error: <span>{{ loginError }}</span></p>
             </form>
         </div>
@@ -44,6 +46,7 @@
                 'doLogin'
             ]),
             handleSubmit() {
+                //user login using data provided by the user
                 this.doLogin({
                     email: this.email,
                     password: this.password
