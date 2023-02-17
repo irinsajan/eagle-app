@@ -1,6 +1,6 @@
 # Eagle Eye User App
 
-## A Vue JS application to details from API when a user logs in
+## A Vue JS application to get details from API when a user logs in
 
 ## To run the project
 ```
